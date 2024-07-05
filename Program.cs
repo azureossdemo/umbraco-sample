@@ -25,3 +25,17 @@ app.UseUmbraco()
     });
 
 await app.RunAsync();
+
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    // Other configurations...
+
+    // Ensure the directory exists
+    string mediaPath = Path.Combine(env.WebRootPath, "media");
+    if (!Directory.Exists(mediaPath))
+    {
+        Directory.CreateDirectory(mediaPath);
+    }
+
+    // Continue with the rest of the configuration...
+}
